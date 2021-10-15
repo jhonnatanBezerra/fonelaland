@@ -40,7 +40,8 @@ export default function App() {
   }
 
   return (
-    <SafeAreaView>
+    <>
+      <SafeAreaView />
       <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent />
       <View style={{ height: '100%', backgroundColor: 'transparent' }}>
 
@@ -86,7 +87,8 @@ export default function App() {
         </View> */}
 
       </View>
-    </SafeAreaView>
+
+    </>
   );
 }
 

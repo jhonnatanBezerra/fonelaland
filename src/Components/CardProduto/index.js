@@ -26,7 +26,7 @@ export const CardProduto = ({ produto }) => {
       </View>
 
       <Text style={{ marginTop: 10, textAlign: 'left', color: '#444', fontWeight: '600' }}>{produto.name}</Text>
-      <Text style={{ marginTop: 5, textAlign: 'left', color: '#444', fontWeight: '600' }}>R$ {produto.preco}</Text>
+      <Text style={{ marginTop: 5, textAlign: 'left', color: '#444', fontWeight: '600', fontSize: 18, color: '#ccc' }}>R$ {produto.preco}</Text>
 
     </TouchableOpacity>
   );
