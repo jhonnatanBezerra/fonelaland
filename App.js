@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Text, View, SafeAreaView, FlatList, StatusBar } from 'react-native';
+import { Text, View, SafeAreaView, FlatList, StatusBar, ScrollView } from 'react-native';
+
 
 
 import { Header } from './src/Components/Header';
@@ -12,11 +13,20 @@ export default function App() {
   const [produtos, setProdutos] = useState([
     { id: "00", name: "HyperX Cloud Alpha", preco: "599,90", image: "https://http2.mlstatic.com/D_NQ_NP_618863-MLA45812996847_052021-O.jpg" },
     { id: "01", name: "HyperX Cloud Beta", preco: "560,27", image: "https://www.portosoft.com.br/media/catalog/product/cache/1/image/540x/9df78eab33525d08d6e5fb8d27136e95/f/o/fone_hyperx.jpg" },
-    { id: "02", name: "HyperX Cloud Charlie", preco: "500,99", image: "https://images-americanas.b2w.io/produtos/01/00/img/3389784/2/3389784244_1GG.jpg" },
-    { id: "03", name: "HyperX Cloud Delta", preco: "128,00", image: "https://cf.shopee.co.th/file/bbd49fda4b9d259d13415b1af7bc2360" },
-    { id: "04", name: "HyperX Cloud Eco", preco: "610,20", image: "https://a-static.mlcdn.com.br/618x463/fone-de-ouvido-headset-gamer-hyperx-cloudx-chat-para-xbox/maikshop/9766147419/7c01d93893b788eaaf4fc972b75a89de.jpg" },
-    { id: "05", name: "HyperX Cloud Charlie", preco: "500,99", image: "https://images-americanas.b2w.io/produtos/01/00/img/3389784/2/3389784244_1GG.jpg" },
-    { id: "06", name: "HyperX Cloud Alpha", preco: "599,90", image: "https://http2.mlstatic.com/D_NQ_NP_618863-MLA45812996847_052021-O.jpg" },
+    { id: "02", name: "HyperX Cloud Alpha", preco: "599,90", image: "https://http2.mlstatic.com/D_NQ_NP_618863-MLA45812996847_052021-O.jpg" },
+    { id: "03", name: "HyperX Cloud Beta", preco: "560,27", image: "https://www.portosoft.com.br/media/catalog/product/cache/1/image/540x/9df78eab33525d08d6e5fb8d27136e95/f/o/fone_hyperx.jpg" },
+    { id: "04", name: "HyperX Cloud Charlie", preco: "500,99", image: "https://images-americanas.b2w.io/produtos/01/00/img/3389784/2/3389784244_1GG.jpg" },
+    { id: "05", name: "HyperX Cloud Alpha", preco: "599,90", image: "https://http2.mlstatic.com/D_NQ_NP_618863-MLA45812996847_052021-O.jpg" },
+    { id: "06", name: "HyperX Cloud Delta", preco: "128,00", image: "https://cf.shopee.co.th/file/bbd49fda4b9d259d13415b1af7bc2360" },
+    { id: "07", name: "HyperX Cloud Charlie", preco: "500,99", image: "https://images-americanas.b2w.io/produtos/01/00/img/3389784/2/3389784244_1GG.jpg" },
+    { id: "08", name: "HyperX Cloud Delta", preco: "128,00", image: "https://cf.shopee.co.th/file/bbd49fda4b9d259d13415b1af7bc2360" },
+    { id: "09", name: "HyperX Cloud Alpha", preco: "599,90", image: "https://http2.mlstatic.com/D_NQ_NP_618863-MLA45812996847_052021-O.jpg" },
+    { id: "10", name: "HyperX Cloud Eco", preco: "610,20", image: "https://a-static.mlcdn.com.br/618x463/fone-de-ouvido-headset-gamer-hyperx-cloudx-chat-para-xbox/maikshop/9766147419/7c01d93893b788eaaf4fc972b75a89de.jpg" },
+    { id: "11", name: "HyperX Cloud Alpha", preco: "599,90", image: "https://http2.mlstatic.com/D_NQ_NP_618863-MLA45812996847_052021-O.jpg" },
+    { id: "12", name: "HyperX Cloud Charlie", preco: "500,99", image: "https://images-americanas.b2w.io/produtos/01/00/img/3389784/2/3389784244_1GG.jpg" },
+    { id: "13", name: "HyperX Cloud Eco", preco: "610,20", image: "https://a-static.mlcdn.com.br/618x463/fone-de-ouvido-headset-gamer-hyperx-cloudx-chat-para-xbox/maikshop/9766147419/7c01d93893b788eaaf4fc972b75a89de.jpg" },
+    { id: "14", name: "HyperX Cloud Alpha", preco: "599,90", image: "https://http2.mlstatic.com/D_NQ_NP_618863-MLA45812996847_052021-O.jpg" },
+    { id: "15", name: "HyperX Cloud Charlie", preco: "500,99", image: "https://images-americanas.b2w.io/produtos/01/00/img/3389784/2/3389784244_1GG.jpg" },
   ]);
 
   const [marca, setMarca] = useState([
@@ -47,11 +57,10 @@ export default function App() {
 
         <Header />
 
-        <View style={{ backgroundColor: '#f3f3ff', flex: 1, borderTopLeftRadius: 30, borderTopEndRadius: 30, paddingHorizontal: 20 }}>
+        <ScrollView showsVerticalScrollIndicator={false} style={{ backgroundColor: '#f3f3ff', flex: 1, borderTopLeftRadius: 30, borderTopEndRadius: 30, paddingHorizontal: 20, }}>
 
-          {/* MARCA */}
           <View >
-            <Text style={{ marginVertical: 10, fontSize: 22 }}>Escolha marca</Text>
+            <Text style={{ marginVertical: 10, fontSize: 22 }}>Escolha marca ({marca.length})</Text>
 
             <FlatList
               horizontal
@@ -63,7 +72,6 @@ export default function App() {
 
           </View>
 
-          {/* Produtos lista */}
           <View style={{ flex: 1 }}>
             <Text style={{ marginVertical: 10, fontSize: 22 }}>Produtos ({produtos.length})</Text>
 
@@ -74,17 +82,13 @@ export default function App() {
               showsVerticalScrollIndicator={false}
               keyExtractor={item => item.id}
               renderItem={({ item }) => renderProductsList(item)}
+              style={{ marginBottom: 25 }}
             />
 
 
           </View>
-
-        </View>
-
-        {/* tab navigation */}
-        {/* <View style={{ height: 42, borderTopLeftRadius: 30, borderTopEndRadius: 30, borderColor: 'black', borderWidth: 0.3 }}>
-          <Text style={{ textAlign: 'center' }}>Tab navigation</Text>
-        </View> */}
+        </ScrollView>
+        <SafeAreaView />
 
       </View>
 
